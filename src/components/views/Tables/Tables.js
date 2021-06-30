@@ -1,15 +1,25 @@
 import React from 'react';
-import styles from '../Tables/Tables.scss';
+import styles from './Tables.module.scss';
+import TableComponent from './TableComponent';
+import Buttons from './Buttons';
 import { Link } from 'react-router-dom';
+
+import TimePicker from '../../../utils/TimePicker';
+import DatePicker from '../../../utils/DatePicker';
+
+import Grid from '@material-ui/core/Grid';
+
 
 const Tables = () => (
   <div className={styles.component}>
-    <Link to={`${process.env.PUBLIC_URL}/tables/booking/123abc`} activeClassName='active'>Booking</Link>
-    <Link to={`${process.env.PUBLIC_URL}/tables/booking/new`} activeClassName='active'>New booking</Link>
-    <Link to={`${process.env.PUBLIC_URL}/tables/events/123abc`} activeClassName='active'>Events</Link>
-    <Link to={`${process.env.PUBLIC_URL}/tables/events/new`} activeClassName='active'>New event</Link>
-    <h2>Tables view</h2>
-  </div>
+    <h2>Tables View</h2>
+    <Buttons />
+    <Grid className={styles.dateTimePicker}>
+      <DatePicker />
+      <TimePicker />
+    </Grid>
+    <TableComponent />
+  </div >
 );
 
 export default Tables;
