@@ -2,4 +2,17 @@
 
 .component {
   padding: $base-size;
+  margin-top: 2 * $base-size;
+}
+
+.button{
+  margin-bottom: 3 * $base-size;
+}
+
+.table{
+  margin: 3 * $base-size;
+}
+
+.typography{
+  margin: 3 * $base-size;
 }

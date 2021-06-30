@@ -1,20 +1,32 @@
 import React from 'react';
-import styles from './OrderNew.scss';
+import styles from './OrderNew.module.scss';
 import CheckboxTable from '../CheckboxTable/CheckboxTable';
 import ListDish from './ListDish';
 
-import { Grid } from '@material-ui/core';
+import { Box, Grid, Typography } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
+
+
+const useStyles = makeStyles((theme) => ({
+  button: {
+    marginTop: '30px',
+  },
+}));
 
 const OrderNew = () => {
+  const classes = useStyles();
   return (
     <Grid>
-      <div className={styles.component}>
-        <h2>NEW Order</h2>
-      </div>
+      <Box mb={7} className={styles.component}>
+        <Typography variant="h3">NEW Order</Typography>
+      </Box>
       <CheckboxTable />
-      <ListDish />
+      <Box mt={5}>
+        <ListDish />
+      </Box>
       <Button
+        className={classes.button}
         type="submit"
         size="large"
         variant="contained"

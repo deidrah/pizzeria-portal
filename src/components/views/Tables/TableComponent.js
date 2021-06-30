@@ -1,7 +1,4 @@
 import React from 'react';
-
-//import { availableTables } from '../../../data/tablesData';
-
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -16,32 +13,36 @@ const availableTables = [
   {
     hours: '11:00',
     tables: [
-      { id: '1', status: 'null' },
-      { id: '2', status: 'booked' },
-      { id: '3', status: 'event' },
-      { id: '4', status: 'null' },
+      { id: '1', status: 'null', order: null },
+      { id: '2', status: 'booking', order: 234 },
+      { id: '3', status: 'events', order: 345 },
+      { id: '4', status: 'null', order: null },
     ],
   },
   {
     hours: '12:00',
     tables: [
-      { id: '1', status: 'booked' },
-      { id: '2', status: 'booked' },
-      { id: '3', status: 'null' },
-      { id: '4', status: 'null' },
+      { id: '1', status: 'booking', order: 456 },
+      { id: '2', status: 'events', order: 999 },
+      { id: '3', status: 'null', order: null },
+      { id: '4', status: 'null', order: null },
     ],
   },
 ];
 
-const renderActions = status => {
+const renderActions = (order, status) => {
   switch (status) {
-    case 'booked':
+    case 'booking':
       return (
-        <Button component={Link} to={'/tables/booking/:id'}>Booked</Button>
+        <Button component={Link} to={`/tables/${status}/${order}`}>
+          Booked {order}
+        </Button>
       );
-    case 'event':
+    case 'events':
       return (
-        <Button component={Link} to={'/tables/events/:id'}>Event</Button>
+        <Button component={Link} to={`/tables/${status}/${order}`}>  
+          Event {order}
+        </Button>
       );
     case 'null':
       return (
@@ -51,6 +52,7 @@ const renderActions = status => {
       return null;
   }
 };
+
 
 const TableComponent = () => (
   <TableContainer component={Paper}>
@@ -73,7 +75,7 @@ const TableComponent = () => (
             </TableCell>
             {row.tables.map((table =>
               <TableCell key={table.id} align="center">
-                {renderActions(table.status)}
+                {renderActions(table.order, table.status)}
               </TableCell>
             ))}
           </TableRow>

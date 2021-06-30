@@ -58,7 +58,7 @@ const Order = (props) => {
             <TableRow key={row.id}>
               <TableCell align="center">{row.id}</TableCell>
               <TableCell align="center">{row.name}</TableCell>
-              <TableCell align="center">{row.Table}</TableCell>
+              <TableCell align="center">{row.table}</TableCell>
               <TableCell align="center">{row.amount}</TableCell>
               <TableCell align="center">{row.details}</TableCell>
               <TableCell align="center">{row.price}</TableCell>

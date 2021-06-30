@@ -3,3 +3,15 @@
 .component {
   padding: $base-size;
 }
+
+.dateTimePicker {
+  display: inline-flex;
+}
+
+.buttons {
+  margin: 20px 10px;
+}
+
+.table{
+  margin: 3 * $base-size;
+}

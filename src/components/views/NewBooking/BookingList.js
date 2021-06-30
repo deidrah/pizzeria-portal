@@ -14,6 +14,9 @@ import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import TextField from '@material-ui/core/TextField';
 import { Grid } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+
+
 
 const list =
 {
@@ -25,6 +28,12 @@ const list =
   ],
 };
 
+const useStyles = makeStyles(() => ({
+  inputs: {
+    marginTop: '30px',
+  },
+}));
+
 const EventList = () => {
   const [open, setOpen] = React.useState(true);
 
@@ -32,6 +41,7 @@ const EventList = () => {
     setOpen(!open);
   };
 
+  const classes = useStyles();
   return (
     <List>
       <ListItem button onClick={handleClick}>
@@ -53,7 +63,7 @@ const EventList = () => {
           ))}
         </List>
       </Collapse>
-      <Grid>
+      <Grid className={classes.inputs}>
         <form noValidate autoComplete="off">
           <TextField className={styles.textField} id="standard-basic" label="Name" />
           <TextField className={styles.textField} id="standard-basic" label="Duration(hour)" type="number" />

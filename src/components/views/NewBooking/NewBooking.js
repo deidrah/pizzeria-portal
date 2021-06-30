@@ -5,27 +5,43 @@ import DatePicker from '../../../utils/DatePicker';
 import TimePicker from '../../../utils/TimePicker';
 import BookingList from './BookingList';
 
-import { Grid } from '@material-ui/core';
+import { Box, Grid, Typography } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
 
-const BookingNew = () => (
-  <Grid className={styles.component}>
-    <h2>NEW Booking</h2>
-    <Grid className={styles.dateTimePicker}>
-      <DatePicker />
-      <TimePicker />
+const useStyles = makeStyles(() => ({
+  button: {
+    marginTop: '30px',
+  },
+}));
+
+const BookingNew = () => {
+  const classes = useStyles();
+  return (
+    <Grid className={styles.component}>
+      <Typography variant="h3">NEW Booking</Typography>
+      <Grid>
+        <Box display="inline-flex" p={1} m={3}>
+          <DatePicker />
+        </Box>
+        <Box display="inline-flex" p={1} m={3}>
+          <TimePicker />
+        </Box>
+      </Grid>
+      <CheckboxTable />
+      <Box mt={5} >
+        <BookingList />
+      </Box>
+      <Button
+        className={classes.button}
+        type="submit"
+        size="large"
+        variant="contained"
+        color="primary"
+      >
+        Confirm the Booking
+      </Button>
     </Grid>
-    <CheckboxTable />
-    <BookingList />
-    <Button
-      type="submit"
-      size="large"
-      variant="contained"
-      color="primary"
-    >
-      Confirm the Booking
-    </Button>
-  </Grid>
-);
-
+  );
+};
 export default BookingNew;

@@ -15,6 +15,7 @@
     "@types/node": "^15.12.4",
     "@types/react": "^17.0.11",
     "@types/react-dom": "^17.0.8",
+    "axios": "^0.21.1",
     "date-fns": "^2.22.1",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.6",
@@ -28,6 +29,7 @@
     "react-scripts": "4.0.3",
     "react-test-renderer": "^17.0.2",
     "redux": "^4.1.0",
+    "redux-thunk": "^2.3.0",
     "typescript": "^4.3.4",
     "web-vitals": "^1.0.1"
   },
@@ -39,6 +41,7 @@
     "start:api": "yarn build && node server.js",
     "start-and-test": "run-p start-silent test ",
     "build": "react-scripts build",
+    "lint": "esw --watch --clear",
     "test": "react-scripts test --noStackTrace",
     "test-all": "react-scripts test --watchAll=false --noStackTrace",
     "test-related": "react-scripts test --watchAll=false --noStackTrace --findRelatedTests",
